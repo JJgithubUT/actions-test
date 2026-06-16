@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hola mundo! Este workflow ejecutará un script de Python."
+      - run: echo "Este workflow ejecutará un script de Python."
       - run: echo "Inicia actions"
+      - name: Check out repository code
+        uses: actions/checkout@v6
       - run: python --version
       - run: ls -al
       - run: python app.py
