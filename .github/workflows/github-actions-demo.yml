@@ -5,8 +5,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hola mundo! This is a second job running in the same workflow."
+      - run: echo "🎉 Helloooo World 🚀🚀🚀🚀"
       - run: echo "Escribo en un archivo" > file.txt
-      - run: cat file.txt
       - run: ls -al
-      - run: echo "This job is also running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: cat file.txt
+      - run: rm -rf file.txt
+      - run: ls -al
