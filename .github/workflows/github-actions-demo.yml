@@ -11,3 +11,11 @@ jobs:
       - run: cat file.txt
       - run: rm -rf file.txt
       - run: ls -al
+      - run: echo "🎉 The job was automatically tried. 🎉"
+      - run: echo "------------------------------"
+      - name: Clonar Proyecto
+        uses: action/checkout@v6
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}"
+      - run: echo $PATH
+      - run: python app.py
