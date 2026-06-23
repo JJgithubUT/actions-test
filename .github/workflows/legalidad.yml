@@ -1,0 +1,34 @@
+name: 🔞🔞🔞🔞 Workflow para descubrir la legalidad de una persona
+run-name: ⚖️ ${{ inputs.nombre }} (${{
+  inputs.edad }}) - Ejecutado por ${{ github.actor }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: Nombre
+        required: true
+        type: string
+      edad:
+        description: Edad
+        required: true
+        type: number
+
+jobs:
+  legalidad:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ejecutar validación
+        env:
+          NAME: ${{ inputs.nombre }}
+          EDAD: ${{ inputs.edad }}
+        run: python legalidad.py
